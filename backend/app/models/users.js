@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const {Schema} = mongoose
+const {Schema,model} = mongoose
 
 const userSchema = new Schema({
     __v: {type: Number, require: true, select: false},
@@ -10,6 +10,7 @@ const userSchema = new Schema({
     avatar_url: {type: String},
     gender: {type: String, enum: ['male', 'female']},
     headline:{type:String},
+    introduce:{type:String},
     locations:{type:[{type:String}],select:false},
     business:{type:String,select:false},
     employments:{
@@ -36,4 +37,4 @@ const userSchema = new Schema({
 })
 
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = model('User', userSchema)
